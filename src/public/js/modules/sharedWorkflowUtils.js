@@ -57,8 +57,8 @@ async function renderAllInputs(workflowJson) {
         return null;
     }
 
-    for (const [nodeId, node] of Object.entries(workflowJson)) {
-        if (nodeId.charAt(0) == "_") {
+    for (const [nodeId, node] of Object.entries(workflowJson.nodes)) {
+        if (nodeId.charAt(0) == "_" || node.inputs === undefined) {
             continue;
         }
 
